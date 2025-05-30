@@ -875,12 +875,14 @@ h2.main_visual_slide_title {
   background: none;
   border: none;
   font-size: 16px;
-  font-weight: normal;
+  font-weight: 400;
+  color: var(--dark-black;);
+  font-family: 'paperlogy';
 }
 
 .members_header_inner_position button:hover {
   border-bottom: 3px solid #FD082A;
-  font-weight: bold;
+  font-weight: 800;
   color: #FD082A;
   cursor: pointer;
 }
@@ -888,7 +890,7 @@ h2.main_visual_slide_title {
 /* active해야함 */
 .members_header_inner_position button.active {
   border-bottom: 3px solid #FD082A;
-  font-weight: bold;
+  font-weight: 800;
   color: #FD082A;
 }
 
@@ -1399,11 +1401,6 @@ h2.main_visual_slide_title {
 
 
 
-
-
-
-
-
 @media (max-width:1024px) {
 
   .main_visual_slide_inner {
@@ -1563,11 +1560,15 @@ h2.main_visual_slide_title {
     height: max-content;
   }
 
+  .secondary_visual_item03 button:first-child {
+    margin-right: 1rem;
+  }
+
   .secondary_visual_item03 button {
     width: 35%;
-    height: 50px;
-    font-size: 1rem;
-    margin-right: 1rem;
+    height: 3rem;
+    font-size: 12px;
+    margin: 0;
   }
 
   /******** next_match ******/
@@ -1804,12 +1805,18 @@ h2.main_visual_slide_title {
   }
 
   /********** sns **********/
-  #sns .modal{padding-top: 0;}
+  #sns .modal {
+    padding-top: 0;
+  }
+
   #storyModal .modal-image-wrapper {
     width: 100%;
     height: 100vh;
   }
-/*   #modalImg{
+
+  .snsSwiper .swiper-pagination {display: none;}
+
+  /*   #modalImg{
     width: 200px;
     height: 500px;
   } */
