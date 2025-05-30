@@ -274,6 +274,7 @@ h2.main_visual_slide_title {
 
 .secondary_visual_item01 {
   height: 100%;
+  background-color: var(--navypoint);
 }
 
 .secondary_visual_title {
@@ -294,10 +295,6 @@ h2.main_visual_slide_title {
   margin-right: 1rem;
 }
 
-.secondary_visual_item01 {
-  background-color: var(--navypoint);
-}
-
 .secondary_visual_item01 .secondary_visual_wrap {
   height: 100%;
   display: flex;
@@ -306,6 +303,7 @@ h2.main_visual_slide_title {
   position: relative;
   padding-top: 2rem;
   align-items: end;
+  width: 100%;
 }
 
 .secondary_visual_item01 .secondary_visual_wrap::after {
@@ -471,26 +469,27 @@ h2.main_visual_slide_title {
 
 .secondary_visual_item02 {
   background: linear-gradient(to top left, #73070B, #DA1017);
+  text-align: center;
 }
 
 
 .secondary_visual_item02 .secondary_visual_wrap {
   width: 100%;
+  height: 100%;
+  gap: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #ffffff;
-}
-
-.secondary_visual_item02 .secondary_visual_wrap h1 {
-  font-size: 20px;
-  font-weight: bold;
+  justify-content: start;
+  color: var(--white);
+  padding: 2rem;
+  padding-bottom: 5rem;
 }
 
 .secondary_visual_item02 .secondary_visual_wrap h2 {
+  margin-top: 2rem;
   font-size: 20px;
   font-weight: 500;
-  margin-top: 39px;
 }
 
 .secondary_visual_item02 .secondary_visual_wrap .ticket_link {
@@ -499,14 +498,16 @@ h2.main_visual_slide_title {
 }
 
 .secondary_visual_item02 .secondary_visual_wrap_nextprev {
-  margin-left: 400px;
-  margin-top: 30px;
-  width: 100px;
+  margin-left: auto;
+}
+
+.secondary_visual_item02 .secondary_visual_wrap_nextprev a {
+  font-size: 0;
 }
 
 .secondary_visual_item02 .secondary_visual_wrap_nextprev i {
   font-size: 40px;
-  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .secondary_visual_item02 .secondary_visual_wrap_teams {
@@ -514,8 +515,8 @@ h2.main_visual_slide_title {
   font-weight: 500;
   display: grid;
   margin: auto;
-  margin-top: 22px;
   grid-template-columns: 2.5fr 1fr 2.5fr;
+  margin-bottom: 1rem;
 }
 
 .secondary_visual_item02 .secondary_visual_wrap_teams img {
@@ -524,43 +525,36 @@ h2.main_visual_slide_title {
 }
 
 .secondary_visual_item02 .secondary_visual_wrap_teams_vs {
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-}
-
-.secondary_visual_item02 .secondary_visual_wrap_teams_vs span {
-  margin-bottom: 11px;
+  font-family: 'paperlogy';
+  font-weight: 800;
+  gap: 5px;
 }
 
 .secondary_visual_item02 .secondary_visual_wrap_teams_vs p {
-  width: 63px;
-  height: 22px;
   color: #B5191A;
   background-color: #fff;
   font-size: 13px;
   border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
+  padding: 5px 10px;
 }
 
 .secondary_visual_item02 .secondary_visual_wrap_api {
-  display: flex;
-  margin-top: 29px;
-  margin-bottom: 43px;
   cursor: pointer;
+  color: var(--white);
 }
 
 .secondary_visual_item02 .secondary_visual_wrap_api i {
-  margin-right: 6px;
+  margin-right: 5px;
 }
 
-.secondary_visual_item02 .secondary_countdown {
-  margin-bottom: 73px;
+.secondary_visual_item02 .ticket_link {
+  margin-top: auto;
 }
 
 
@@ -609,16 +603,45 @@ h2.main_visual_slide_title {
 
 .secondary_visual_item03 .secondary_visual_wrap {
   position: relative;
-  padding: 30px;
+  width: 100%;
+  height: 100%;
   color: var(--white);
   background-image: url(../images/bg01.png);
-  height: 100%;
   background-color: var(--navypoint);
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
 }
 
 .secondary_visual_item03 .secondary_visual_content {
+  padding: 2rem;
   width: 100%;
   height: 100%;
+  display: grid;
+  position: relative;
+  z-index: 20;
+}
+
+.btn_wrap {
+  margin-top: auto;
+}
+
+.secondary_visual_item03 button {
+  height: 50px;
+  width: 9rem;
+  border: none;
+  color: var(--white);
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .15s;
+  background-color: var(--dark-black);
+  margin-right: 2rem;
+}
+
+.secondary_visual_item03 button:hover {
+  background-color: var(--navypoint);
 }
 
 .member09 {
@@ -627,8 +650,6 @@ h2.main_visual_slide_title {
 }
 
 .member09 img {
-  z-index: 1;
-  opacity: 1;
   position: absolute;
   bottom: 0;
   left: -60px;
@@ -639,63 +660,25 @@ h2.main_visual_slide_title {
   bottom: 10px;
   right: 10px;
   text-align: right;
+  line-height: 0;
+  font-size: 100px;
+  font-weight: 700;
 }
 
 .member_num {
   font-size: 200px;
   color: var(--redpoint);
-  font-weight: bold;
   opacity: .4;
+  line-height: 80%;
 }
 
 .member_name {
-  font-size: 100px;
-  font-weight: bold;
+  line-height: 100%;
 }
 
 .member_info p {
-  font-size: 100px;
   opacity: .4;
-  font-weight: bold;
   line-height: .87;
-}
-
-.btn_wrap {
-  width: 300px;
-  height: 40px;
-  margin: 20px;
-}
-
-.secondary_visual_item03 button {
-  height: 50px;
-  width: 136px;
-  border: none;
-  color: var(--white);
-  border-radius: 5px;
-  font-size: 18px;
-  font-weight: 600;
-  z-index: 2;
-  cursor: pointer;
-  transition: .15s;
-}
-
-.secondary_visual_item03 button:hover {
-  opacity: .8;
-}
-
-.secondary_visual_item03 .record {
-  position: absolute;
-  bottom: 80px;
-  left: 100px;
-  background-color: var(--navypoint);
-  margin-left: -30px;
-}
-
-.secondary_visual_item03 .highlights {
-  position: absolute;
-  bottom: 80px;
-  left: 250px;
-  background-color: var(--dark-black);
 }
 
 /*****************  next_match ***************/
@@ -778,15 +761,20 @@ h2.main_visual_slide_title {
   border-radius: 10px;
   margin-top: 20px;
   box-shadow: 3px 3px 10px var(--dark-gray);
+  padding: 1rem;
 }
 
 .match_box_inner {
-  padding: 25px;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-row-gap: 5px;
 }
 
 .name {
   font-size: 12px;
   color: var(--redpoint);
+  position: relative;
 }
 
 .name::before {
@@ -794,18 +782,18 @@ h2.main_visual_slide_title {
   margin-right: 5px;
 }
 
-.home_btn {
+.match_boxwrap .match_box:nth-child(3) .name::after,
+.match_boxwrap .match_box:nth-child(5) .name::after {
+  content: 'HOME';
   position: absolute;
-  right: 98px;
-  top: 20px;
-  width: 50px;
-  height: 16px;
+  top: 40%;
+  transform: translate(10px, -50%);
+  padding: 3px 5px;
   background-color: var(--redpoint);
   color: var(--white);
   font-size: 11px;
   border-radius: 5px;
   text-align: center;
-  line-height: 17px;
   box-shadow: 1px 1px 5px var(--dark-gray);
 }
 
@@ -821,18 +809,15 @@ h2.main_visual_slide_title {
 
 .place {
   font-size: 12px;
-  margin-top: 10px;
 }
 
 .team {
   display: flex;
-  width: 130px;
+  width: 75%;
   justify-content: space-between;
-  margin-top: 10px;
 }
 
 .vs {
-  margin-top: 10px;
   font-size: 18px;
   font-weight: bold;
   opacity: .4;
@@ -847,19 +832,18 @@ h2.main_visual_slide_title {
 
 .match_btn {
   font-size: 12px;
-  margin: auto;
-  position: absolute;
-  width: 200px;
+  width: 100%;
   height: 35px;
   cursor: pointer;
   border-radius: 5px;
   border: none;
   box-shadow: 1px 1px 5px var(--dark-gray);
   bottom: 15px;
-  font-weight: bold;
+  font-weight: 700;
   color: var(--dark-gray);
   background-color: var(--white);
   transition: .3s;
+  margin-top: auto;
 }
 
 .match_btn.btn_on,
@@ -1450,7 +1434,7 @@ h2.main_visual_slide_title {
 
   h2.main_visual_slide_title {
     width: 80%;
-    font-size: 4rem;
+    font-size: 2rem;
   }
 
   .main_visual_desc p:first-child {
@@ -1486,15 +1470,23 @@ h2.main_visual_slide_title {
   /******** secondary_visual_container ******/
 
   .secondary_visual_container {
+    width: 100%;
     display: grid;
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 600px);
     height: auto;
+    /* display: none; */
   }
 
   .secondary_visual_item:first-child,
-  .secondary_visual_item:last-child {}
+  .secondary_visual_item:last-child {
+    width: 100%;
+    flex: unset;
+  }
 
-  .secondary_visual_item:nth-child(2) {}
+  .secondary_visual_item:nth-child(2) {
+    width: 100%;
+    flex: unset;
+  }
 
   .secondary_visual_title {
     font-size: 1rem;
@@ -1520,17 +1512,46 @@ h2.main_visual_slide_title {
     width: 100%;
   }
 
+  .secondary_visual_item02 .secondary_visual_wrap_teams {
+    font-size: 20px;
+    font-weight: 500;
+    display: grid;
+    margin: auto;
+    grid-template-columns: 2.5fr 1fr 2.5fr;
+    margin-bottom: 1rem;
+  }
+
+  .secondary_visual_item02 .secondary_visual_wrap_teams img {
+    height: 50px;
+  }
+
+  .secondary_countdown {
+    overflow: hidden;
+  }
+
+  .secondary_countdown .countdown_box {
+    width: 3.5rem;
+  }
+
+  .secondary_countdown .countdown_number {
+    font-size: 20px;
+    width: 3.5rem;
+    height: 3.5rem;
+    line-height: 3.5rem;
+  }
+
   .secondary_visual_item03 {
     width: 100%;
     height: auto;
   }
 
   .member09 {
+    width: 100%;
     overflow: hidden;
   }
 
   .member09 img {
-    height: 90%;
+    height: 80%;
     left: -150px;
   }
 
@@ -1538,21 +1559,15 @@ h2.main_visual_slide_title {
     font-size: 130px;
   }
 
-  .member_name,
-  .secondary_visual_item03 .secondary_visual_wrap p {
-    /* font-size: 60px; */
-    font-weight: 600;
+  .btn_wrap {
+    height: max-content;
   }
 
-  .record {
-    bottom: 40px;
-    left: 80px;
-    margin-left: -30px;
-  }
-
-  .highlights {
-    bottom: 40px;
-    left: 210px;
+  .secondary_visual_item03 button {
+    width: 35%;
+    height: 50px;
+    font-size: 1rem;
+    margin-right: 1rem;
   }
 
   /******** next_match ******/
@@ -1561,7 +1576,14 @@ h2.main_visual_slide_title {
     height: auto;
   }
 
-  #next_match .next_match{width: 90%;}
+  #next_match .next_match {
+    width: 90%;
+  }
+
+  .match_menu_inner {
+    right: 30px;
+    width: 100%;
+  }
 
   .next_match,
   .news_content {
@@ -1588,23 +1610,14 @@ h2.main_visual_slide_title {
   }
 
   .match_box {
-    width: 375px;
-    height: 228px;
-  }
-
-  .match_btn {
-    width: 320px;
-    height: 30px;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
   }
 
   .match_box_img img {
     width: 55px;
     height: auto;
-  }
-
-  .home_btn {
-    right: 230px;
-    border-radius: 3px;
   }
 
   .line {
@@ -1729,8 +1742,8 @@ h2.main_visual_slide_title {
 
   .card_content {
     margin: auto;
-    min-width: 400px;
-    max-width: 80%;
+    width: 95%;
+    min-width: 80%;
     flex-direction: column;
     position: relative;
   }
@@ -1745,14 +1758,14 @@ h2.main_visual_slide_title {
     grid-template-columns: 1fr 3fr;
     padding: 10px;
     margin: 10px 0;
+    gap: 10px;
   }
 
   .img_box {
-    width: 150px;
+    width: 100%;
     height: 90px;
     overflow: hidden;
     border-radius: 5px;
-    margin-right: 10px;
   }
 
   .card_desc {
@@ -1789,4 +1802,15 @@ h2.main_visual_slide_title {
   .notice_bg {
     display: none;
   }
+
+  /********** sns **********/
+  #sns .modal{padding-top: 0;}
+  #storyModal .modal-image-wrapper {
+    width: 100%;
+    height: 100vh;
+  }
+/*   #modalImg{
+    width: 200px;
+    height: 500px;
+  } */
 }
