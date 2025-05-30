@@ -1,0 +1,83 @@
+/* reset.css */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+*{margin: 0;padding: 0;box-sizing: border-box;}
+
+/* common */
+html{font-size: 15px; scroll-behavior: smooth;}
+body{font-family: "Pretendard Variable", Pretendard, sans-serif; color: var(--dark-black); font-weight: 500;}
+
+#contents section{margin: 8rem 0;}
+.inner{width: 1300px; margin: auto;}
+
+/* 섹션 서브타이틀 */
+
+.front_header{
+    width: 100%;
+    position: relative;
+    margin-bottom: 2rem;
+}
+.front_header h2{font-family: 'Paperlogy'; font-size: 1.8rem; font-weight: 800; margin-bottom: .8rem;}
+.front_header h2 + p{font-family: 'Paperlogy'; font-weight: 400;}
+  
+.btn_view{
+  position: absolute;
+  right: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+.btn_view svg{
+  width: 26px;
+  vertical-align: middle;
+}
+
+
+@media (max-width:1024px){
+    .front_header{width: 100%;}
+    .inner{width: 90%;}
+}

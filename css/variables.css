@@ -1,0 +1,31 @@
+/* font Family */
+/* paperlogy */
+@import url('https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/Paperlogy.css');
+/* pretendard */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+/* text color */
+:root{
+  --dark-black:#333333;
+  --dim-black:#555555;
+  --silver-black:#777777;
+  --light-black:#999999;
+  --dark-gray:#BDBDBD;
+  --dim-gray:#DDDDDD;
+  --silver-gray:#EEEEEE;
+  --light-gray:#F5F5F5;
+  --cloudy-gray:#F9F9F9;
+}
+
+/* object color */
+:root{
+  --redpoint:#FD082A;
+  --redmain:#B5191A;
+  --yellow:#FFB300;
+  --navy:#131726;
+  --navypoint:#001C48;
+  --white:#FFFFFF;
+  --black:#171717;
+  --box-shadow: 0 10px 10px #0000002a;
+}
+
