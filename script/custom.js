@@ -10,6 +10,9 @@ fetch('header.html')
 
     /* ##########헤더 영역########## */
 
+    /* 로고 변경 */
+    document.querySelector('.header_logo>a>img').setAttribute('src', `images/logo_signature_horisontal3.png`)
+
     /* 메뉴 드롭 */
     let gnb = document.querySelector('.gnb');
     let subMenu = document.querySelector('.sub_wrap');
@@ -99,14 +102,12 @@ fetch('header.html')
     trigger.addEventListener('mouseenter', function () {
       if (gnb.classList.contains('drop')) { gnb.classList.add('active') };
       headerWrap.style.background = 'var(--black)';
-      // meganav.style.display = 'block'
       meganav.style.height = '400px';
       meganav.style.opacity = '1';
     });
 
     meganavWrap.addEventListener('mouseenter', function () {
       if (gnb.classList.contains('drop')) { gnb.classList.add('active') };
-      // meganav.style.display = 'block'
       meganav.style.height = '400px';
       meganav.style.opacity = '1';
     });
@@ -411,3 +412,66 @@ function openMapModal() {
 function closeMapModal() {
   document.getElementById('mapModal').style.display = 'none';
 }
+
+/* 다음 경기 일정 왼쪽 오른쪽이동 */
+const nextButtons = document.querySelectorAll('.btn-next');
+const prevButtons = document.querySelectorAll('.btn-prev');
+
+const section1 = document.querySelector('.secondary_visual_item02');
+const section2 = document.querySelector('.secondary_visual_item02_second');
+
+nextButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    section1.style.display = 'none';
+    section2.style.display = 'block';
+  });
+});
+
+prevButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    section2.style.display = 'none';
+    section1.style.display = 'block';
+  });
+}); 
+
+
+/********** 타이머 ***********/
+function startCountdown(durationInSeconds, container) {
+  let timer = durationInSeconds;
+  let date = container.querySelector('.countdown_date02');
+  let hour = container.querySelector('.countdown_hour02');
+  let minute = container.querySelector('.countdown_minute02');
+  let second = container.querySelector('.countdown_second02');
+  let interval = setInterval(() => {
+  /* 일 */
+  //1일 = 86400초 -> 전체시간을 86400로 나눠서 소수점 버리면 일
+  let dates = Math.floor(timer / 86400);
+  /* 시간 */
+  //1시간 = 3600초 -> 하루를 3600으로 나누면 시
+  let hours = Math.floor((timer % 86400) / 3600);
+  /* 분 */
+  //1시간을 다시 60으로 나누면 분
+  let minutes = Math.floor((timer % 3600) / 60);
+  /* 초 */
+  //타이머 자체를 60으로 나누면 초
+  let seconds = timer % 60;
+  /* 각 값을 문자열로 변환하고 두자리로 맞춤 */
+  let d = String(dates).padStart(2, '0');
+  let h = String(hours).padStart(2, '0');
+  let m = String(minutes).padStart(2, '0');
+  let s = String(seconds).padStart(2, '0');
+  /* 문서의 제자리에 쑤셔넣기 */
+  date.textContent = d;
+  hour.textContent = h;
+  minute.textContent = m;
+  second.textContent = s;
+  /* 여기 밑에 하단부는 바로 선택해서 넣기 */
+  document.querySelector('.countdown_date02').textContent = d;
+  document.querySelector('.countdown_hour02').textContent = h;
+  document.querySelector('.countdown_minute02').textContent = m;
+  document.querySelector('.countdown_second02').textContent = s;
+  if (timer > 0) { timer-- } else { clearInterval(interval) };
+}, 1000)
+};
+startCountdown(1234567, document.getElementById("match2"));
+startCountdown(965463, document.getElementById("match1"));

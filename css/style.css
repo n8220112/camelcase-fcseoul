@@ -268,7 +268,8 @@ h2.main_visual_slide_title {
   flex: 3.5;
 }
 
-.secondary_visual_item:nth-child(2) {
+.secondary_visual_item:nth-child(2),
+.secondary_visual_item:nth-child(3) {
   flex: 3;
 }
 
@@ -467,13 +468,20 @@ h2.main_visual_slide_title {
   background-image: url(../images/ranking_logo11.svg);
 }
 
-.secondary_visual_item02 {
+
+.secondary_visual_item02_second {
+  display: none;
+}
+
+.secondary_visual_item02,
+.secondary_visual_item02_second {
   background: linear-gradient(to top left, #73070B, #DA1017);
   text-align: center;
 }
 
 
-.secondary_visual_item02 .secondary_visual_wrap {
+.secondary_visual_item02 .secondary_visual_wrap,
+.secondary_visual_item02_second .secondary_visual_wrap {
   width: 100%;
   height: 100%;
   gap: 2rem;
@@ -486,31 +494,37 @@ h2.main_visual_slide_title {
   padding-bottom: 5rem;
 }
 
-.secondary_visual_item02 .secondary_visual_wrap h2 {
+.secondary_visual_item02 .secondary_visual_wrap h2,
+.secondary_visual_item02_second .secondary_visual_wrap h2 {
   margin-top: 2rem;
   font-size: 20px;
   font-weight: 500;
 }
 
-.secondary_visual_item02 .secondary_visual_wrap .ticket_link {
+.secondary_visual_item02 .secondary_visual_wrap .ticket_link,
+.secondary_visual_item02_second .secondary_visual_wrap .ticket_link {
   background-color: var(--yellow);
   color: var(--black);
 }
 
-.secondary_visual_item02 .secondary_visual_wrap_nextprev {
+.secondary_visual_item02 .secondary_visual_wrap_nextprev,
+.secondary_visual_item02_second .secondary_visual_wrap_nextprev {
   margin-left: auto;
 }
 
-.secondary_visual_item02 .secondary_visual_wrap_nextprev a {
+.secondary_visual_item02 .secondary_visual_wrap_nextprev a,
+.secondary_visual_item02_second .secondary_visual_wrap_nextprev a {
   font-size: 0;
 }
 
-.secondary_visual_item02 .secondary_visual_wrap_nextprev i {
+.secondary_visual_item02 .secondary_visual_wrap_nextprev i,
+.secondary_visual_item02_second .secondary_visual_wrap_nextprev i {
   font-size: 40px;
   margin-left: 10px;
 }
 
-.secondary_visual_item02 .secondary_visual_wrap_teams {
+.secondary_visual_item02 .secondary_visual_wrap_teams,
+.secondary_visual_item02_second .secondary_visual_wrap_teams {
   font-size: 20px;
   font-weight: 500;
   display: grid;
@@ -519,12 +533,14 @@ h2.main_visual_slide_title {
   margin-bottom: 1rem;
 }
 
-.secondary_visual_item02 .secondary_visual_wrap_teams img {
+.secondary_visual_item02 .secondary_visual_wrap_teams img,
+.secondary_visual_item02_second .secondary_visual_wrap_teams img {
   height: 120px;
   margin: auto;
 }
 
-.secondary_visual_item02 .secondary_visual_wrap_teams_vs {
+.secondary_visual_item02 .secondary_visual_wrap_teams_vs,
+.secondary_visual_item02_second .secondary_visual_wrap_teams_vs {
   font-size: 2rem;
   display: flex;
   flex-direction: column;
@@ -535,7 +551,8 @@ h2.main_visual_slide_title {
   gap: 5px;
 }
 
-.secondary_visual_item02 .secondary_visual_wrap_teams_vs p {
+.secondary_visual_item02 .secondary_visual_wrap_teams_vs p,
+.secondary_visual_item02_second .secondary_visual_wrap_teams_vs p {
   color: #B5191A;
   background-color: #fff;
   font-size: 13px;
@@ -544,16 +561,19 @@ h2.main_visual_slide_title {
   padding: 5px 10px;
 }
 
-.secondary_visual_item02 .secondary_visual_wrap_api {
+.secondary_visual_item02 .secondary_visual_wrap_api,
+.secondary_visual_item02_second .secondary_visual_wrap_api {
   cursor: pointer;
   color: var(--white);
 }
 
-.secondary_visual_item02 .secondary_visual_wrap_api i {
+.secondary_visual_item02 .secondary_visual_wrap_api i,
+.secondary_visual_item02_second .secondary_visual_wrap_api i {
   margin-right: 5px;
 }
 
-.secondary_visual_item02 .ticket_link {
+.secondary_visual_item02 .ticket_link,
+.secondary_visual_item02_second .ticket_link {
   margin-top: auto;
 }
 
@@ -876,7 +896,7 @@ h2.main_visual_slide_title {
   border: none;
   font-size: 16px;
   font-weight: 400;
-  color: var(--dark-black;);
+  color: var(--dark-black; );
   font-family: 'paperlogy';
 }
 
@@ -999,6 +1019,10 @@ h2.main_visual_slide_title {
   height: unset;
 }
 
+.memberSwiper .swiper-slide:hover .slide_text_hover>#coach{
+  display: flex; justify-content: center;
+}
+
 /* .swiper-slide:hover .slide_text{display: block;} */
 .memberSwiper .swiper-slide:hover .slide_text {
   display: none;
@@ -1044,14 +1068,14 @@ h2.main_visual_slide_title {
 }
 
 .memberSwiper .slide_text_hover .record {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   margin-top: 5%;
 }
 
 .memberSwiper .slide_text_hover .count {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   margin-top: 20px;
 }
 
@@ -1135,13 +1159,15 @@ h2.main_visual_slide_title {
 
 /***************  notice  **************/
 .news_wrap {
+  width: 1300px;
+  margin: auto;
   position: relative;
 }
 
 .notice_bg {
   position: absolute;
   top: 0;
-  right: 10%;
+  right: -120px;
   clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%);
   background-color: #131726;
   width: 570px;
@@ -1678,9 +1704,10 @@ h2.main_visual_slide_title {
   }
 
   .memberSwiper .slide_text_hover .record {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     margin-top: 3%;
+    margin-left: 0;
   }
 
   .memberSwiper .slide_text_hover .record p {
@@ -1688,8 +1715,8 @@ h2.main_visual_slide_title {
   }
 
   .memberSwiper .slide_text_hover .count {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     margin-top: 10px;
   }
 
@@ -1717,6 +1744,7 @@ h2.main_visual_slide_title {
   /********** news **********/
 
   .news_wrap {
+    width: 100%;
     margin: auto;
   }
 
@@ -1814,10 +1842,12 @@ h2.main_visual_slide_title {
     height: 100vh;
   }
 
-  .snsSwiper .swiper-pagination {display: none;}
+  .snsSwiper .swiper-pagination {
+    display: none;
+  }
 
-  /*   #modalImg{
-    width: 200px;
-    height: 500px;
-  } */
+  #modalImg {
+    width: 90%;
+    height: 80%;
+  }
 }

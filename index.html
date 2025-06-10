@@ -20,7 +20,7 @@
   <div id="header"></div>
 
   <!-- hero section -->
-  <main id="hero">
+  <div id="hero">
     <section id="main_visual">
       <!-- Swiper -->
       <div class="swiper mainVisual">
@@ -175,11 +175,13 @@
             </div>
           </div>
         </div>
-        <div class="secondary_visual_item secondary_visual_item02">
+        <div class="secondary_visual_item secondary_visual_item02" id="match1">
           <div class="secondary_visual_wrap">
             <div class="secondary_visual_wrap_nextprev">
-              <a href="#none"><i class="fa-solid fa-square-caret-left" style="color: #e3e3e3;"></i></a>
-              <a href="#none"><i class="fa-solid fa-square-caret-right" style="color: #e3e3e3;"></i></a>
+              <!-- 양쪽에 모두 공통 적용 -->
+              <a href="#none" class="btn-prev"><i class="fa-solid fa-square-caret-left" style="color: #e3e3e3;"></i></a>
+              <a href="#none" class="btn-next"><i class="fa-solid fa-square-caret-right"
+                  style="color: #e3e3e3;"></i></a>
             </div>
             <div>
               <h3 class="secondary_visual_title">다음 경기 일정</h3>
@@ -200,19 +202,71 @@
             </div>
             <div class="countdown secondary_countdown">
               <div class="countdown_box countdown_date"><span>일</span>
-                <div class="countdown_number" id="countdown_date02">00</div>
+                <div class="countdown_number countdown_date02">00</div>
               </div>
               <div class="countdown_colon">:</div>
               <div class="countdown_box countdown_hour"><span>시간</span>
-                <div class="countdown_number" id="countdown_hour02">00</div>
+                <div class="countdown_number countdown_hour02">00</div>
               </div>
               <div class="countdown_colon">:</div>
               <div class="countdown_box countdown_minute"><span>분</span>
-                <div class="countdown_number" id="countdown_minute02">00</div>
+                <div class="countdown_number countdown_minute02">00</div>
               </div>
               <div class="countdown_colon">:</div>
               <div class="countdown_box countdown_second"><span>초</span>
-                <div class="countdown_number" id="countdown_second02">00</div>
+                <div class="countdown_number countdown_second02">00</div>
+              </div>
+            </div>
+            <button class="ticket_link"><i class="bi bi-ticket-detailed"></i>예매하기</button>
+          </div>
+          <!-- 지도 모달 -->
+          <div id="mapModal">
+            <div class="modal-content">
+              <button onclick="closeMapModal()">X</button>
+              <div id="map"></div>
+            </div>
+          </div>
+        </div>
+        <div class="secondary_visual_item secondary_visual_item02_second" id="match2">
+          <div class="secondary_visual_wrap">
+            <div class="secondary_visual_wrap_nextprev">
+              <!-- 양쪽에 모두 공통 적용 -->
+              <a href="#none" class="btn-prev"><i class="fa-solid fa-square-caret-left" style="color: #e3e3e3;"></i></a>
+              <a href="#none" class="btn-next"><i class="fa-solid fa-square-caret-right"
+                  style="color: #e3e3e3;"></i></a>
+            </div>
+            <div>
+              <h3 class="secondary_visual_title">다음 경기 일정</h3>
+              <h2>2025.06.17(화) 19:30</h2>
+            </div>
+            <div>
+              <div class="secondary_visual_wrap_teams">
+                <img src="images/logo1.png" alt="">
+                <div class="secondary_visual_wrap_teams_vs">
+                  <span>VS</span>
+                  <p>HOME</p>
+                </div>
+                <img src="images/schedule_GangWon.png" alt="">
+              </div>
+              <div class="secondary_visual_wrap_api">
+                <p><i class="fa-solid fa-location-dot"></i>서울월드컵경기장</p>
+              </div>
+            </div>
+            <div class="countdown secondary_countdown">
+              <div class="countdown_box countdown_date"><span>일</span>
+                <div class="countdown_number countdown_date02">00</div>
+              </div>
+              <div class="countdown_colon">:</div>
+              <div class="countdown_box countdown_hour"><span>시간</span>
+                <div class="countdown_number countdown_hour02">00</div>
+              </div>
+              <div class="countdown_colon">:</div>
+              <div class="countdown_box countdown_minute"><span>분</span>
+                <div class="countdown_number countdown_minute02">00</div>
+              </div>
+              <div class="countdown_colon">:</div>
+              <div class="countdown_box countdown_second"><span>초</span>
+                <div class="countdown_number countdown_second02">00</div>
               </div>
             </div>
             <button class="ticket_link"><i class="bi bi-ticket-detailed"></i>예매하기</button>
@@ -248,7 +302,7 @@
         </div>
       </div>
     </section>
-  </main>
+  </div>
 
   <main id="contents">
     <section id="next_match">
@@ -418,7 +472,7 @@
           <div class="front_header">
             <h2>FC SEOUL MEMBERS</h2>
             <p>FC서울 선수들을 만나보아요</p>
-            <a href="#none" class="btn_view">
+            <a href="members.html" class="btn_view">
               자세히보기
               <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -1385,7 +1439,7 @@
             </div>
             <div class="slide_text_hover">
               <p>Manager</p>
-              <div class="record">
+              <div class="record" id="coach">
                 <p>2024년 취임</p>
               </div>
             </div>
@@ -1397,7 +1451,7 @@
             </div>
             <div class="slide_text_hover">
               <p>Assistant Manager</p>
-              <div class="record">
+              <div class="record" id="coach">
                 <p>2024년 취임</p>
               </div>
             </div>
@@ -1409,7 +1463,7 @@
             </div>
             <div class="slide_text_hover">
               <p>Coach</p>
-              <div class="record">
+              <div class="record" id="coach">
                 <p>2024년 취임</p>
               </div>
             </div>
@@ -1421,7 +1475,7 @@
             </div>
             <div class="slide_text_hover">
               <p>GK Coach</p>
-              <div class="record">
+              <div class="record" id="coach">
                 <p>2024년 취임</p>
               </div>
             </div>
@@ -1433,7 +1487,7 @@
             </div>
             <div class="slide_text_hover">
               <p>Physical</p>
-              <div class="record">
+              <div class="record" id="coach">
                 <p>2024년 취임</p>
               </div>
             </div>
@@ -1445,7 +1499,7 @@
             </div>
             <div class="slide_text_hover">
               <p>Coach</p>
-              <div class="record">
+              <div class="record" id="coach">
                 <p>2024년 취임</p>
               </div>
             </div>
@@ -1810,7 +1864,7 @@
         <button class="next">
           <!-- &#10095; --><i class="fa-solid fa-caret-right"></i>
         </button>
-        <button id="togglePlay" class="toggle-play">⏸️</button>
+        <button id="togglePlay" class="toggle-play"><i class="fa-solid fa-pause"></i></button>
       </div>
     </section>
   </main>
@@ -1820,7 +1874,7 @@
 </body>
 
 <!-- 네이버 지도 API -->
-<script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=dn324yj7ty"></script>
+<script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=4w7lbtr1l2"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="script/swiper.js"></script> <!-- 스와이퍼 js는 따로 빼두기 (많고, 길고, 메인에서만 쓰니까) -->
 <script src="script/custom.js"></script> <!-- 헤더 푸터 fetch와 js는 여기에 포함 -->

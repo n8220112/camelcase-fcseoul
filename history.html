@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FC SEOUL - 구단연혁</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="css/stylesub.css">
+</head>
+
+<body>
+  <!-- header-include -->
+  <div id="header"></div>
+  <section id="hero" class="history_hero">
+    <div class="history_hero_desc">
+      <h1><em>SOUL</em> OF SEOUL</h1>
+      <h2>BEST FOOTBALL CLUB IN ASIA, <em>FC SEOUL</em></h2>
+    </div>
+    <script>
+      const h1 = document.querySelector('.history_hero_desc h1');
+      const h2 = document.querySelector('.history_hero_desc h2');
+
+      // 원래 내용을 저장해둠
+      const h1Original = h1.innerHTML;
+      const h2Original = h2.innerHTML;
+
+      // 순수 텍스트만 추출 (타이핑 기준)
+      function stripHtml(html) {
+        const div = document.createElement('div');
+        div.innerHTML = html;
+        return div.textContent || div.innerText || '';
+      }
+
+      function createTypingEffect(element, htmlContent, callback) {
+        const fullText = stripHtml(htmlContent);
+        let charIndex = 0;
+
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = htmlContent;
+
+        function walk(node, visibleLength, currentText = { value: '' }, count = { value: 0 }) {
+          if (count.value >= visibleLength) return;
+
+          if (node.nodeType === Node.TEXT_NODE) {
+            let slice = node.nodeValue.slice(0, visibleLength - count.value);
+            count.value += slice.length;
+            currentText.value += slice;
+          } else if (node.nodeType === Node.ELEMENT_NODE) {
+            currentText.value += `<${node.nodeName.toLowerCase()}${[...node.attributes].map(attr => ` ${attr.name}="${attr.value}"`).join('')}>`;
+            for (let child of node.childNodes) {
+              walk(child, visibleLength, currentText, count);
+              if (count.value >= visibleLength) break;
+            }
+            currentText.value += `</${node.nodeName.toLowerCase()}>`;
+          }
+        }
+
+        function type() {
+          const visibleLength = charIndex + 1;
+          const currentText = { value: '' };
+          const count = { value: 0 };
+
+          for (let child of tempDiv.childNodes) {
+            walk(child, visibleLength, currentText, count);
+            if (count.value >= visibleLength) break;
+          }
+
+          element.innerHTML = currentText.value;
+          charIndex++;
+
+          if (charIndex <= fullText.length) {
+            setTimeout(type, 100);
+          } else if (callback) {
+            callback();
+          }
+        }
+
+        type();
+      }
+
+      function startTyping() {
+        h1.innerHTML = '';
+        h2.innerHTML = '';
+
+        createTypingEffect(h1, h1Original, () => {
+          setTimeout(() => {
+            createTypingEffect(h2, h2Original, () => {
+              setTimeout(startTyping, 10000); // 10초 유지 후 반복
+            });
+          }, 500); // h1 끝난 뒤 약간의 텀
+        });
+      }
+
+      startTyping();
+    </script>
+
+    <div class="history_hero_video">
+      <video src="images/introduce.mp4" muted autoplay playsinline loop></video>
+    </div>
+  </section>
+  <main id="history_container">
+    <section id="history_award">
+      <div class="history_award inner">
+        <h2>AWARD RECORDS</h2>
+        <div class="history_award_wrap">
+          <div class="history_award_image">
+            <img src="images/history_award.jpg" alt="">
+          </div>
+          <div class="history_award_list_wrap">
+            <ol class="history_award_list">
+              <li class="history_award_list_item">
+                <div class="list_item_logo"><img src="images/award_list_logo1.svg" alt=""><span>0</span><i>K리그</i></div>
+                <div class="list_item_progress">
+                  <div class="list_item_bar"></div>
+                </div>
+              </li>
+              <li class="history_award_list_item">
+                <div class="list_item_logo"><img src="images/award_list_logo3.svg" alt=""><span>0</span><i>리그컵</i></div>
+                <div class="list_item_progress">
+                  <div class="list_item_bar"></div>
+                </div>
+              </li>
+              <li class="history_award_list_item">
+                <div class="list_item_logo"><img src="images/award_list_logo4.svg" alt=""><span>0</span><i>전국축구선수권대회</i>
+                </div>
+                <div class="list_item_progress">
+                  <div class="list_item_bar"></div>
+                </div>
+              </li>
+            </ol>
+            <ol class="history_award_list">
+              <li class="history_award_list_item">
+                <div class="list_item_logo"><img src="images/award_list_logo2.svg" alt=""><span>0</span><i>코리아컵</i>
+                </div>
+                <div class="list_item_progress">
+                  <div class="list_item_bar"></div>
+                </div>
+              </li>
+              <li class="history_award_list_item">
+                <div class="list_item_logo"><img src="images/award_list_logo3.svg" alt=""><span>0</span><i>슈퍼컵</i></div>
+                <div class="list_item_progress">
+                  <div class="list_item_bar"></div>
+                </div>
+              </li>
+              <li class="history_award_list_item">
+                <div class="list_item_logo"><img src="images/award_list_logo5.svg" alt=""><span>0</span><i>수상</i></div>
+                <div class="list_item_progress">
+                  <div class="list_item_bar"></div>
+                </div>
+              </li>
+            </ol>
+            <div class="history_award_slider">
+              <input type="range" name="award_slider_range" id="award_slider_range" class="award_slider_range" dir="ltr"
+                min="1983" max="2025" step="1" value="2025">
+              <span class="award_slider_value"></span>
+
+              <script>
+                const slider = document.querySelector('.award_slider_range');
+
+                function updateSliderBackground(slider) {
+                  const min = parseInt(slider.min);
+                  const max = parseInt(slider.max);
+                  const val = parseInt(slider.value);
+                  const percentage = ((val - min) / (max - min)) * 100;
+
+                  slider.style.background = `linear-gradient(to right, #FD082A 0%, #FD082A ${percentage}%, #ddd ${percentage}%, #ddd 100%)`;
+
+                  // 값 표시용 span도 갱신
+                  const valueSpan = document.querySelector('.award_slider_value');
+                  if (valueSpan) {
+                    valueSpan.innerHTML = `<i class="fa-solid fa-angle-left"></i>${val}<i class="fa-solid fa-angle-right"></i>`;
+                    valueSpan.style.left = `${percentage}%`;
+                    valueSpan.style.transform = `translateX(-${percentage}%)`;
+                  }
+                }
+
+                slider.addEventListener('input', function () {
+                  updateSliderBackground(this);
+                });
+
+                // 초기 배경 설정
+                updateSliderBackground(slider);
+              </script>
+              <script>
+                const awardData = {
+                  //K리그 리그컵 전국축구선수권대회 코리아컵 슈퍼컵 수상
+                  1983: [0, 0, 0, 0, 0, 0],
+                  1984: [0, 0, 0, 0, 0, 2],
+                  1985: [1, 0, 0, 0, 0, 12],
+                  1986: [1, 0, 0, 0, 0, 17],
+                  1987: [1, 0, 0, 0, 0, 18],
+                  1988: [1, 0, 1, 0, 0, 20],
+                  1989: [1, 0, 1, 0, 0, 24],
+                  1990: [2, 0, 1, 0, 0, 34],
+                  1991: [2, 0, 1, 0, 0, 35],
+                  1992: [2, 0, 1, 0, 0, 37],
+                  1993: [2, 0, 1, 0, 0, 41],
+                  1994: [2, 0, 1, 0, 0, 45],
+                  1995: [2, 0, 1, 0, 0, 46],
+                  1998: [2, 1, 1, 1, 0, 46],
+                  1999: [2, 1, 1, 1, 0, 47],
+                  2000: [3, 1, 1, 1, 0, 53],
+                  2001: [3, 1, 1, 1, 1, 56],
+                  2003: [3, 1, 1, 1, 1, 57],
+                  2004: [3, 1, 1, 1, 1, 58],
+                  2005: [3, 1, 1, 1, 1, 61],
+                  2006: [3, 2, 1, 1, 1, 63],
+                  2007: [3, 2, 1, 1, 1, 65],
+                  2008: [3, 2, 1, 1, 1, 69],
+                  2009: [3, 2, 1, 1, 1, 70],
+                  2010: [4, 3, 1, 1, 1, 75],
+                  2011: [4, 3, 1, 1, 1, 79],
+                  2012: [5, 3, 1, 1, 1, 89],
+                  2013: [5, 3, 1, 1, 1, 96],
+                  2014: [5, 3, 1, 1, 1, 101],
+                  2015: [5, 3, 1, 2, 2, 104],
+                  2016: [6, 3, 1, 2, 2, 111],
+                  2017: [6, 3, 1, 2, 2, 113],
+                  2019: [6, 3, 1, 2, 2, 114],
+                  2021: [6, 3, 1, 2, 2, 115],
+                  2022: [6, 3, 1, 2, 2, 117],
+                  2023: [6, 3, 1, 2, 2, 120],
+                  2024: [6, 3, 1, 2, 2, 123],
+                  2025: [6, 3, 1, 2, 2, 123] // 마지막 항목에 맞춰 예시
+                };
+
+                const maxAwards = [6, 3, 1, 2, 2, 123]; // 각 항목별 최고 수치로 width 100% 기준
+                const listItems = document.querySelectorAll('.history_award_list_item');
+
+                function animateNumberAndBar(span, bar, fromValue, toValue, maxValue) {
+                  const duration = 500; // 0.5초
+                  const frameRate = 20;
+                  const steps = duration / frameRate;
+                  const numberStep = (toValue) / steps;
+
+                  let current = fromValue;
+                  let count = 0;
+
+                  const interval = setInterval(() => {
+                    current += numberStep;
+                    count++;
+
+                    if (count >= steps) {
+                      current = toValue;
+                      clearInterval(interval);
+                    }
+
+                    span.textContent = Math.round(current);
+                    bar.style.width = `${(current / maxValue) * 100}%`;
+                  }, frameRate);
+                }
+
+
+                function updateAwardsByYear(year) {
+                  const years = Object.keys(awardData).map(Number).sort((a, b) => a - b);
+                  const nearest = years.reduce((a, b) => (b <= year ? b : a), years[0]);
+                  const values = awardData[nearest];
+
+                  listItems.forEach((item, idx) => {
+                    const span = item.querySelector('span');
+                    const bar = item.querySelector('.list_item_bar');
+                    const value = values[idx] || 0;
+
+                    // 숫자는 즉시 갱신
+                    span.textContent = value;
+
+                    // 바는 부드럽게 변화 (CSS transition 적용됨)
+                    bar.style.width = `${(value / maxAwards[idx]) * 100}%`;
+                  });
+                }
+
+
+
+                // 슬라이더 이벤트에 연결
+                slider.addEventListener('input', function () {
+                  updateSliderBackground(this);
+                  updateAwardsByYear(parseInt(this.value));
+                });
+
+                // 초기 상태 설정
+                updateAwardsByYear(parseInt(slider.value));
+              </script>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="history_introduce">
+      <div class="history_introduce inner">
+        <div class="history_introduce_desc">
+          <h3>아시아 최고의 클럽 ‘FC서울’이 되겠습니다.</h3>
+          <p>
+            팬을 위한 화끈한 공격축구와 흥미진진한 플레이로 정규리그와 리그컵 모두 정상에 올라<!-- <br> -->
+            K리그를 평정함은 물론 한국 프로스포츠 사상 단일 경기 최다 관중 신기록을 비롯하여<!-- <br> -->
+            각종 최다 관중 신기록을 수립하며 성적과 흥행 모두에서 최고의 자리를 올랐습니다.<!-- <br> -->
+            이제 명실상부한 한국 최고의 프로축구단으로서 반드시 아시아 정상에 올라<!-- <br> -->
+            K리그의 글로벌 위상을 드높이는데 최선을 다해 앞장설 것입니다.
+          </p>
+        </div>
+        <div class="history_introduce_logos">
+          <img src="images/logo3.png" alt="">
+          <img src="images/logo_40th.png" alt="">
+        </div>
+      </div>
+    </section>
+    <section id="history_clubhistory">
+      <div class="history_clubhistory inner">
+        <div class="history_clubhistory_titlewrap">
+          <h2>CLUB HISTORY</h2>
+          <div class="history_clubhistory_buttons">
+            <a href="#history5" class="active">2020년대</a>
+            <a href="#history4">2010년대</a>
+            <a href="#history3">2000년대</a>
+            <a href="#history2">1990년대</a>
+            <a href="#history1">1980년대</a>
+          </div>
+        </div>
+        <div class="history_clubhistory_items" id="history5">
+          <div class="history_clubhistory_item">
+            <h3>2024<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_image">
+              <img src="images/club_history_2024.jpg" alt="">
+            </div>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>프로스포츠 역대 최다 평균 관중 기록 (27,838명)</p>
+              <em>02</em>
+              <p>K리그 최초 50만 관중 돌파(501,091명)</p>
+              <em>03</em>
+              <p>K리그 공로상 수상</p>
+              <em>04</em>
+              <p>K리그1 플러스 스타디움상 수상</p>
+              <em>05</em>
+              <p>K리그1 풀 스타디움상 수상</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>2023<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_image">
+              <img src="images/club_history_2023.jpg" alt="">
+            </div>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>프로스포츠 역대 최다 평균 관중 기록 (22,633명)</p>
+              <em>02</em>
+              <p>K리그 최초 40만 관중 돌파(430,029명)</p>
+              <em>03</em>
+              <p>K리그 플러스 스타디움상 수상</p>
+              <em>04</em>
+              <p>K리그1 풀 스타디움상 수상</p>
+              <em>05</em>
+              <p>K리그1 유소년 클럽상 수상</p>
+              <em>06</em>
+              <p>김기동 감독 선임 (15대)</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>2022<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_image">
+              <img src="images/club_history_2022.jpg" alt="">
+            </div>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>제27회 하나원큐 FA컵 준우승</p>
+              <em>02</em>
+              <p>K리그1 풀 스타디움상 수상</p>
+              <em>03</em>
+              <p>K리그1 유소년클럽상 수상</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>2021<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>안익수 감독 선임 (14대)</p>
+              <em>02</em>
+              <p>K리그 유소년클럽상 수상</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>2020<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>박진섭 감독 선임 (13대)</p>
+            </div>
+          </div>
+        </div>
+        <div class="history_clubhistory_items" id="history4">
+          <div class="history_clubhistory_item">
+            <h3>2019<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>K리그 30만 관중 돌파(관중수 1위 324,162명)</p>
+              <em>02</em>
+              <p>K리그 관중 입장수익 1위, 관중 1인당 입장수익 1위</p>
+              <em>03</em>
+              <p>K리그 풀스타디움상(평균 관중 17,061명)</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>2018<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>최용수 감독(12대) 취임</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>2017<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>K리그 최초 8년 연속 30만 관중 돌파(310,061명)</p>
+              <em>02</em>
+              <p>K리그 페어플레이상</p>
+              <em>03</em>
+              <p>K리그 풀스타디움상(평균 관중 16,319명)</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>2016<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_image">
+              <img src="images/club_history_2016.jpg" alt="">
+            </div>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>황선홍 감독(11대) 취임</p>
+              <em>02</em>
+              <p>현대오일뱅크 K리그 클래식 우승</p>
+              <em>03</em>
+              <p>제21회 KEB하나은행 FA컵 준우승</p>
+              <em>04</em>
+              <p>2016 AFC챔피언스리그 4강</p>
+              <em>05</em>
+              <p>K리그 단일 경기 최다 관중 기록 9위 달성(6월 18일 47,899명)</p>
+              <em>06</em>
+              <p>K리그 최초 7년 연속 30만 관중 돌파</p>
+              <em>07</em>
+              <p>K리그 감독상: 황선홍</p>
+              <em>08</em>
+              <p>ACL 득점왕: 아드리아노(13골)</p>
+              <em>09</em>
+              <p>FA컵 득점왕: 아드리아노(5골)</p>
+              <em>10</em>
+              <p>K리그 베스트11 DF 고광민, 오스마르, FW 아드리아노</p>
+              <em>11</em>
+              <p>K리그 최초 객단가 1만원 돌파(10,287원)</p>
+              <em>12</em>
+              <p>K리그 풀스타디움상(평균 관중 18,007명)</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>2015<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_image">
+              <img src="images/club_history_2015.jpg" alt="">
+            </div>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>제20회 KEB하나은행 FA컵 우승</p>
+              <em>02</em>
+              <p>AFC 클럽랭킹 K리그 1위(아시아 4위)</p>
+              <em>03</em>
+              <p>K리그 최고 6년 연속 30만 관중 돌파</p>
+              <em>04</em>
+              <p>구단 통산 1,500호 골 달성(4월 15일 대전전 득점자 김현성)</p>
+              <em>05</em>
+              <p>K리그 최초 객단가 9천원 돌파(9,485원)</p>
+              <em>06</em>
+              <p>K리그 경기당 평균 최다 유료관중 기록(14,846명)</p>
+              <em>07</em>
+              <p>리그 특별상 오스마르(시즌 전 경기 풀타임)</p>
+              <em>08</em>
+              <p>리그 베스트11 DF 차두리, FW 아드리아노</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>2014<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_image">
+              <img src="images/club_history_2014.jpg" alt="">
+            </div>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>제19회 하나은행 FA컵 준우승</p>
+              <em>02</em>
+              <p>AFC 챔피언스리그 4강</p>
+              <em>03</em>
+              <p>K리그 최초 2년 연속 AFC 챔피언스리그 4강 진출</p>
+              <em>04</em>
+              <p>AFC 클럽랭킹 K리그 1위(아시아 2위)</p>
+              <em>05</em>
+              <p>K리그 역대 최다 관중 1~10위 석권(7월 12일 vs 수원 46,549명, K리그 역대 최다 관중 9위 기록)</p>
+              <em>06</em>
+              <p>바이엘04 레버쿠젠 친선경기(7월 31일)</p>
+              <em>07</em>
+              <p>K리그 페어플레이상</p>
+              <em>08</em>
+              <p>리그 베스트11 DF 김주영, 차두리, MF 고명진</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>2013<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>AFC 챔피언스리그 준우승</p>
+              <em>02</em>
+              <p>AFC 올해의 감독상 최용수</p>
+              <em>03</em>
+              <p>K리그 통산 400승 달성</p>
+              <em>04</em>
+              <p>리그 득점상 데얀(19골, 3년 연속 득점상), 도움상 몰리나(13도움, 2년 연속 도움상)</p>
+              <em>05</em>
+              <p>리그 베스트11 DF 아디, MF 하대성, FW 데얀</p>
+              <em>06</em>
+              <p>K리그 페어플레이상</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>2012<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_image">
+              <img src="images/club_history_2012.jpg" alt="">
+            </div>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>현대오일뱅크 K리그 우승</p>
+              <em>02</em>
+              <p>K리그 단일 정규리그 최다 승점 신기록 수립(96점)</p>
+              <em>03</em>
+              <p>K리그 단일 정규리그 최다 승수 신기록 수립(29승)</p>
+              <em>04</em>
+              <p>K리그 3시즌 연속 최다 총관중 달성</p>
+              <em>05</em>
+              <p>리그 감독상 최용수, MVP 데얀, 득점상 데얀(31골), 도움상 몰리나(19도움)</p>
+              <em>06</em>
+              <p>베스트11 GK 김용대, DF 아디, MF 몰리나, 하대성, FW 데얀</p>
+              <em>07</em>
+              <p>K리그 풀스타디움상(평균 관중 20,502명)</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>2011<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>황보관 감독(9대) 취임</p>
+              <em>02</em>
+              <p>최용수 감독(10대) 취임</p>
+              <em>03</em>
+              <p>AFC 챔피언스리그 8강</p>
+              <em>04</em>
+              <p>구단 최다 7연승 신기록 수립</p>
+              <em>05</em>
+              <p>K리그 최초 2시즌 연속 50만 총관중 달성</p>
+              <em>06</em>
+              <p>리그 득점상 데얀(24골)</p>
+              <em>07</em>
+              <p>리그 베스트11 MF 하대성, FW 데얀</p>
+              <em>08</em>
+              <p>K리그 페어플레이상</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>2010<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_image">
+              <img src="images/club_history_2010.jpg" alt="">
+            </div>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>넬로 빙가다 감독(8대) 취임</p>
+              <em>02</em>
+              <p>쏘나타 K리그 우승</p>
+              <em>03</em>
+              <p>포스코컵 우승</p>
+              <em>04</em>
+              <p>프로스포츠 단일 경기 최다 관중 신기록 수립(vs 성남, 5월 5일, 60,747명)</p>
+              <em>05</em>
+              <p>K리그 단일 시즌 최다 총관중 신기록(546,397명)</p>
+              <em>06</em>
+              <p>K리그 최다 홈 18연승 타이기록 수립</p>
+              <em>07</em>
+              <p>리그 베스트11 GK 김용대, DF 최효진, 아디, FW 데얀</p>
+              <em>08</em>
+              <p>K리그 특별상 김용대(시즌 전 경기 풀타임)</p>
+            </div>
+          </div>
+        </div>
+        <div class="history_clubhistory_items" id="history3">
+          <div class="history_clubhistory_item">
+            <h3>2009<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>AFC챔피언스리그 8강</p>
+              <em>02</em>
+              <p>맨체스터 유나이티드 친선경기(7월 24일)</p>
+              <em>03</em>
+              <p>베스트11 MF 기성용</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>2008<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>삼성 하우젠 K-리그 준우승</p>
+              <em>02</em>
+              <p>LA갤럭시 친선경기(3월 1일)</p>
+              <em>03</em>
+              <p>FC도쿄 친선경기(6월 15일)</p>
+              <em>04</em>
+              <p>FC서울 25년사 발간</p>
+              <em>05</em>
+              <p>신인상 이승렬</p>
+              <em>06</em>
+              <p>베스트11 DF 아디, MF 이청용, 기성용</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>2007<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_image">
+              <img src="images/club_history_2007.jpg" alt="">
+            </div>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>세뇰 귀네슈 감독(7대) 취임</p>
+              <em>02</em>
+              <p>삼성 하우젠컵 준우승</p>
+              <em>03</em>
+              <p>프로스포츠 단일 경기 최다 관중 기록 수립(vs 수원, 4월 8일, 55,397명)</p>
+              <em>04</em>
+              <p>맨체스터 유나이티드 친선경기(7월 20일)</p>
+              <em>05</em>
+              <p>FC도쿄 친선경기(7월 26일, 도쿄)</p>
+              <em>06</em>
+              <p>베스트11 DF 아디</p>
+              <em>07</em>
+              <p>K리그 특별상 김병지(시즌 전 경기 풀타임)</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>2006<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>삼성 하우젠컵 우승</p>
+              <em>02</em>
+              <p>구단 통산 1,000호골 달성(6월 3일 포항전 득점자 곽태휘)</p>
+              <em>03</em>
+              <p>FC도쿄 친선경기(61,235명, 8월 5일)</p>
+              <em>04</em>
+              <p>리그 특별상 김병지(시즌 전 경기 풀타임)</p>
+              <em>05</em>
+              <p>베스트11 FW 김은중</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>2005<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_image">
+              <img src="images/club_history_2005.jpg" alt="">
+            </div>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>이장수 감독(6대) 취임</p>
+              <em>02</em>
+              <p>보카 주니어스 친선경기(7월 26일)</p>
+              <em>03</em>
+              <p>K리그 단일 시즌 최다 관중 신기록 수립(458,605명)</p>
+              <em>04</em>
+              <p>도움상 히칼도(9도움), 신인상 박주영</p>
+              <em>05</em>
+              <p>베스트11 FW 박주영</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>2004<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_image">
+              <img src="images/club_history_2004.jpg" alt="">
+            </div>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>서울 연고지 복귀</p>
+              <em>02</em>
+              <p>구단 공식 명칭 ‘FC서울’로 변경 및 엠블럼 발표(3월 19일)</p>
+              <em>03</em>
+              <p>GS스포츠 출범(6월 1일)</p>
+              <em>04</em>
+              <p>베스트11 MF 김동진</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>2003<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>신인왕 정조국</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>2002<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>2001-2002 아시안 클럽 챔피언십 준우승</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>2001<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_image">
+              <img src="images/club_history_2001.jpg" alt="">
+            </div>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>포스데이타 수퍼컵 우승</p>
+              <em>02</em>
+              <p>포스코 K-리그 준우승</p>
+              <em>03</em>
+              <p>리그 베스트11 GK 신의손, DF 이영표</p>
+              <em>04</em>
+              <p>리그 특별상 신의손(시즌 전 경기 풀타임)</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>2000<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_image">
+              <img src="images/club_history_2000.jpg" alt="">
+            </div>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>삼성 디지털 K-리그 우승</p>
+              <em>02</em>
+              <p>리그 감독상 조광래, MVP 최용수, 도움상 안드레(10도움)</p>
+              <em>03</em>
+              <p>리그 베스트11 GK 신의손, MF 안드레, FW 최용수</p>
+            </div>
+          </div>
+        </div>
+        <div class="history_clubhistory_items" id="history2">
+          <div class="history_clubhistory_item">
+            <h3>1999<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>아디다스컵 준우승</p>
+              <em>02</em>
+              <p>티켓링크 수퍼컵 준우승</p>
+              <em>03</em>
+              <p>조광래 감독(5대) 취임</p>
+              <em>04</em>
+              <p>FA컵 득점상 최용수(5골)</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>1998<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_image">
+              <img src="images/club_history_1998.jpg" alt="">
+            </div>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>제3회 삼보체인지업 FA컵 우승</p>
+              <em>02</em>
+              <p>제3대 허창수 구단주 취임</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>1997<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>제2회 FA컵 3위</p>
+              <em>02</em>
+              <p>박병주 감독(4대) 취임</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>1996<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>안양 연고지 이전</p>
+              <em>02</em>
+              <p>구단 공식 명칭 '안양 LG 치타스'로 변경</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>1995<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>프로축구 올해의 인기구단 선정(총관중 1위)</p>
+              <em>02</em>
+              <p>리그 베스트11 MF 김판근</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>1994<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>아디다스컵 준우승</p>
+              <em>02</em>
+              <p>조영증 감독(3대) 취임</p>
+              <em>03</em>
+              <p>리그 득점상 윤상철(21골) 도움상 고정운(10도움) 신인상 최용수</p>
+              <em>04</em>
+              <p>리그 베스트11 FW 윤상철</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>1993<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>한국프로축구대회 준우승</p>
+              <em>02</em>
+              <p>도움상 윤상철(8도움), 감투상 윤상철</p>
+              <em>03</em>
+              <p>베스트11 MF 김동해, FW 윤상철</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>1992<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>아디다스컵 준우승</p>
+              <em>02</em>
+              <p>리그 득점상 임근재(10골)</p>
+              <em>03</em>
+              <p>리그 베스트11 FW 임근재</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>1991<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>구단명칭 ‘LG치타스’로 변경(마스코트: 황소->치타)</p>
+              <em>02</em>
+              <p>제2대 구본무 구단주 취임</p>
+              <em>03</em>
+              <p>리그 베스트11 MF 이영진</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>1990<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>90 한국프로축구대회 우승</p>
+              <em>02</em>
+              <p>서울 연고지 이전</p>
+              <em>03</em>
+              <p>리그 감독상 고재욱, MVP 최진한, 득점상 윤상철(12골), 도움상 최대식(7도움), 감투상 최태진</p>
+              <em>04</em>
+              <p>리그 베스트11 DF 최영준, 최태진, MF 최진한, 최대식, FW 윤상철</p>
+            </div>
+          </div>
+        </div>
+        <div class="history_clubhistory_items" id="history1">
+          <div class="history_clubhistory_item">
+            <h3>1989<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>한국프로축구대회 준우승</p>
+              <em>02</em>
+              <p>고재욱 감독(2대) 취임</p>
+              <em>03</em>
+              <p>리그 골키퍼상: 차상광</p>
+              <em>04</em>
+              <p>리그 베스트11 GK 차상광, DF 이영익, FW 윤상철</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>1988<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>제6회 홍콩 구정컵 3위</p>
+              <em>02</em>
+              <p>제 43회 전국축구선수권대회 우승</p>
+              <em>03</em>
+              <p>리그 감투상 최진한</p>
+              <em>04</em>
+              <p>리그 베스트11 MF 최진한</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>1987<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>제 1회 윈풀라이컵 준우승</p>
+              <em>02</em>
+              <p>리그 베스트11 DF: 구상범</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>1986<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>축구대제전 준우승</p>
+              <em>02</em>
+              <p>리그 도움상: 강득수(8도움), 골키퍼상 김현태</p>
+              <em>03</em>
+              <p>리그 베스트11 GK 김현태, DF 조영증, MF 조민국</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>1985<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>축구대제전 수퍼리그 우승</p>
+              <em>02</em>
+              <p>리그 감독상 박세학, MVP 한문배, 득점상 피아퐁(12골), 도움상 피아퐁(6도움) 골키퍼상 김현태</p>
+              <em>03</em>
+              <p>리그 베스트11 GK 김현태, DF 한문배, MF 박항서, FW 피아퐁, 강득수</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>1984<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>프로리그 참가</p>
+              <em>02</em>
+              <p>연고지 : 충청도</p>
+              <em>03</em>
+              <p>리그 모범상: 조영증, 베스트 11 MF: 조영증</p>
+            </div>
+          </div>
+          <div class="history_clubhistory_item">
+            <h3>1983<i class="fa-solid fa-circle"></i></h3>
+            <div class="history_clubhistory_desc">
+              <em>01</em>
+              <p>럭키금성 황소 축구단 창단(12월 22일) - 국내 프로축구단 제 5호</p>
+              <em>02</em>
+              <p>초대 구단주 : 구자경, 초대 감독 : 박세학</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      let targetLink = document.querySelectorAll('.history_clubhistory_buttons a');
+      let targetContent = document.querySelectorAll('.history_clubhistory_items');
+      for (let i = 0; i < targetLink.length; i++) {
+        targetLink[i].addEventListener('click', function (e) {
+          e.preventDefault(); //a태그의 기본속성 없애기: 페이지 이동 없앰
+          //클릭된링크의 href속성에서 id값 추출
+          let orgTarget = e.target.getAttribute('href');
+          //초기화: 전부 안 보이게 하기
+          let tabTarget = orgTarget.replace('#', '');
+          for (let x = 0; x < targetContent.length; x++) {
+            targetContent[x].style.display = 'none', ''
+            //클릭된 탭에 해당하는 콘텐츠만 보이게 하기
+            document.getElementById(tabTarget).style.display = 'block';
+            //active 추가 삭제
+            for (let j = 0; j < targetLink.length; j++) {
+              targetLink[j].classList.remove('active'); //모두 삭제
+              e.target.classList.add('active'); //추가
+            };
+          };
+        });
+      };
+      document.getElementById('history5').style.display = 'block';
+    </script>
+  </main>
+  <!-- footer-include -->
+  <div id="footer"></div>
+</body>
+
+<script src="script/custom.js"></script> <!-- 헤더 푸터 fetch와 js는 여기에 포함 -->
+
+</html>

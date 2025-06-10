@@ -88,16 +88,10 @@ function startCountdown(durationInSeconds) {
     hour.textContent = h;
     minute.textContent = m;
     second.textContent = s;
-    /* 여기 밑에 하단부는 바로 선택해서 넣기 */
-    document.getElementById('countdown_date02').textContent = d;
-    document.getElementById('countdown_hour02').textContent = h;
-    document.getElementById('countdown_minute02').textContent = m;
-    document.getElementById('countdown_second02').textContent = s;
     if (timer > 0) { timer-- } else { clearInterval(interval) };
   }, 1000)
 };
 startCountdown(965463);
-
 
 /********** MEMBERS **********/
 var swiper = new Swiper(".memberSwiper", {
@@ -105,6 +99,7 @@ var swiper = new Swiper(".memberSwiper", {
   slidesPerView: 'auto', // 자동 너비 사용
   spaceBetween: 37,
   freeMode: true,
+  grabCursor: true,
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
@@ -151,7 +146,7 @@ var swiper = new Swiper(".snsSwiper", {
       spaceBetween: 10,
     },
     1024: {
-      slidesPerView: 9,
+      slidesPerView: 7,
       spaceBetween: 10,
     },
   },
@@ -238,13 +233,14 @@ function stopInterval() {
   clearInterval(intervalId);
 }
 
+//sns 스토리 정지 아이콘
 togglePlayBtn.addEventListener("click", () => {
   if (isPlaying) {
     stopInterval();
-    togglePlayBtn.textContent = "▶️";
+    togglePlayBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
   } else {
     startInterval();
-    togglePlayBtn.textContent = "⏸️";
+    togglePlayBtn.innerHTML = '<i class="fa-solid fa-pause">';
   }
   isPlaying = !isPlaying;
 });

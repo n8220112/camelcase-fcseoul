@@ -51,6 +51,7 @@ a{
 /* common */
 html{font-size: 15px; scroll-behavior: smooth;}
 body{font-family: "Pretendard Variable", Pretendard, sans-serif; color: var(--dark-black); font-weight: 500;}
+input,input::placeholder,button{font-family: "Pretendard Variable", Pretendard, sans-serif;}
 
 #contents section{margin: 8rem 0;}
 .inner{width: 1300px; margin: auto;}

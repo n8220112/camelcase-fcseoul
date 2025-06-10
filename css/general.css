@@ -7,7 +7,7 @@
 /********** 헤더 **********/
 
 #header {
-  z-index: 9999;
+  z-index: 99999;
   position: fixed;
   top: 0;
   right: 0;
@@ -235,6 +235,7 @@ header a {
   left: 0;
   right: 0;
   backdrop-filter: blur(5px);
+  color: var(--white);
 }
 
 .gnb.drop.active {
@@ -320,7 +321,7 @@ header a {
   bottom: 0;
   right: 0;
   overflow: hidden;
-  z-index: 99999;
+  z-index: 999999;
   background: #0000007a;
 }
 
@@ -391,16 +392,20 @@ header a {
 #login_modal .id_input::before,
 #login_modal .pw_input::before {
   position: absolute;
-  font-size: 1rem; display: block;
+  font-size: 1rem;
+  display: block;
   z-index: 100;
-  left: 1rem; top: 50%; transform: translateY(-50%);
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
   font-family: 'bootstrap-icons';
   color: var(--dark-gray);
 }
 
 #login_modal .id_input::before {
-  content: '\F4DA'; 
+  content: '\F4DA';
 }
+
 #login_modal .pw_input::before {
   content: '\F47A';
 }
@@ -720,7 +725,7 @@ footer {
     bottom: 0;
     right: 0;
     background: var(--black);
-    z-index: 1000;
+    z-index: 9999;
     overflow: scroll;
     -ms-overflow-style: none;
   }
@@ -864,5 +869,13 @@ footer {
     align-items: start;
     padding: 1rem;
     background-size: contain;
+  }
+
+  #login_modal {
+    width: 100%;
+  }
+
+  #login_modal .modal_popup {
+    width: 97%;
   }
 }

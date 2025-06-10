@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FC SEOUL - 경기일정</title>
+    <!-- 기본 -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/stylesub.css">
+    <!-- 폰트어썸 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- 부트 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <style>
+        .login_register_buttons i,
+        .login_register_buttons a,
+        .main_menu>li>a {
+            color: var(--silver-black);
+        }
+        header{background: #ffffff7a;}
+    </style>
+</head>
+
+<body>
+    <!-- header-include -->
+    <div id="header"></div>
+
+    <div class="calendar">
+        <div class="calendar_inner">
+            <div class="calendar_mainvisual"></div>
+            <div class="calendar_top">
+                <div class="calendar_top_span">
+                    <span>1군 경기일정</span>
+                </div>
+                <div class="calendar_date">
+                    <button class="calendar_nav_button" onclick="goToPreviousMonth()"
+                        id="calendar_nav_button_left">◀</button>
+                    <select id="calendar_yearSelect" onchange="updateCalendar()">
+                        <!-- JavaScript로 채워짐 -->
+                    </select>
+                    <select id="calendar_monthSelect" onchange="updateCalendar()">
+                        <!-- JavaScript로 채워짐 -->
+                    </select>
+                    <button class="calendar_nav_button" onclick="goToNextMonth()"
+                        id="calendar_nav_button_right">▶</button>
+                </div>
+
+
+
+                <div class="calendar_gamecolor">
+                    <p class="calendar_gamecolor_home">홈경기</p>
+                    <p class="calendar_gamecolor_away">원정경기</p>
+                </div>
+            </div>
+
+            <div class="calendar_week">
+                <div class="day sun">SUN</div>
+                <div class="day">MON</div>
+                <div class="day">TUE</div>
+                <div class="day">WED</div>
+                <div class="day">THU</div>
+                <div class="day">FRI</div>
+                <div class="day sat">SAT</div>
+            </div>
+
+
+            <div class="container" id="calendar_container05" style="display: none;">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div>
+                    <p>1</p>
+                </div>
+                <div>
+                    <p>2</p>
+                </div>
+                <div id="calendar_game" class="calendar_homegame">
+                    <p>3</p>
+                    <div class="calendar_detail">
+                        <img src="images/Calendar_JeonBuk.png" alt="" id="img">
+                        <p class="calendar_time">19:00</p>
+                        <p class="calendar_score">[패] 0:1</p>
+                    </div>
+                </div>
+                <div>
+                    <p>4</p>
+                </div>
+                <div>
+                    <p>5</p>
+                </div>
+                <div id="calendar_game">
+                    <p>6</p>
+                    <div class="calendar_detail">
+                        <img src="images/Calendar_AnYang.png" alt="" id="img">
+                        <p class="calendar_time">19:00</p>
+                        <p class="calendar_score">[패] 0:1</p>
+                    </div>
+                </div>
+                <div>
+                    <p>7</p>
+                </div>
+                <div>
+                    <p>8</p>
+                </div>
+                <div>
+                    <p>9</p>
+                </div>
+                <div id="calendar_game">
+                    <p>10</p>
+                    <div class="calendar_detail">
+                        <img src="images/Calendar_Daejeon.png" alt="" id="img" class="daejeon_img">
+                        <p class="calendar_time">19:00</p>
+                        <p class="calendar_score">[패] 0:1</p>
+                    </div>
+                </div>
+                <div>
+                    <p>11</p>
+                </div>
+                <div>
+                    <p>12</p>
+                </div>
+                <div>
+                    <p>13</p>
+                </div>
+                <div id="calendar_game">
+                    <p>14</p>
+                    <div class="calendar_detail">
+                        <img src="images/Calendar_Korail.png" alt="" id="img">
+                        <p class="calendar_time">19:00</p>
+                        <p class="calendar_score">[패] 0:1</p>
+                    </div>
+                </div>
+                <div>
+                    <p>15</p>
+                </div>
+                <div>
+                    <p>16</p>
+                </div>
+                <div>
+                    <p>17</p>
+                </div>
+                <div id="calendar_game">
+                    <p>18</p>
+                    <div class="calendar_detail">
+                        <img src="images/Calendar_DaeGu.png" alt="" id="img">
+                        <p class="calendar_time">19:00</p>
+                        <p class="calendar_score">[패] 0:1</p>
+                    </div>
+                </div>
+                <div>
+                    <p>19</p>
+                </div>
+                <div>
+                    <p>20</p>
+                </div>
+                <div>
+                    <p>21</p>
+                </div>
+                <div>
+                    <p>22</p>
+                </div>
+                <div>
+                    <p>23</p>
+                </div>
+                <div id="calendar_game" class="calendar_homegame">
+                    <p>24</p>
+                    <div class="calendar_detail">
+                        <img src="images/Calendar_Suwon.png" alt="" id="img">
+                        <p class="calendar_time">19:00</p>
+                        <p class="calendar_score">[패] 0:1</p>
+                    </div>
+                </div>
+                <div>
+                    <p>25</p>
+                </div>
+                <div>
+                    <p>26</p>
+                </div>
+                <div>
+                    <p>27</p>
+                </div>
+                <div id="calendar_game">
+                    <p>28</p>
+                    <div class="calendar_detail">
+                        <img src="images/Calendar_Kimcheon.png" alt="" id="img">
+                        <p class="calendar_time">19:00</p>
+                        <p class="calendar_score">[패] 0:1</p>
+                    </div>
+                </div>
+                <div>
+                    <p>29</p>
+                </div>
+                <div>
+                    <p>30</p>
+                </div>
+                <div id="calendar_game" class="calendar_homegame">
+                    <p>31</p>
+                    <div class="calendar_detail">
+                        <img src="images/Calendar_Jeju.png" alt="" id="img">
+                        <p class="calendar_time">19:00</p>
+                        <p class="calendar_score">[패] 0:1</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container" id="calendar_container06">
+                <div>
+                    <p>1</p>
+                </div>
+                <div>
+                    <p>2</p>
+                </div>
+                <div>
+                    <p>3</p>
+                </div>
+                <div>
+                    <p>4</p>
+                </div>
+                <div>
+                    <p>5</p>
+                </div>
+                <div>
+                    <p>6</p>
+                </div>
+                <div>
+                    <p>7</p>
+                </div>
+                <div>
+                    <p>8</p>
+                </div>
+                <div>
+                    <p>9</p>
+                </div>
+                <div>
+                    <p>10</p>
+                </div>
+                <div>
+                    <p>11</p>
+                </div>
+                <div>
+                    <p>12</p>
+                </div>
+                <div id="calendar_game">
+                    <p>13</p>
+                    <div class="calendar_detail">
+                        <img src="images/calendar_GwangJu.png" alt="" id="img">
+                        <p class="calendar_time">19:30</p>
+                    </div>
+                </div>
+                <div>
+                    <p>14</p>
+                </div>
+                <div>
+                    <p>15</p>
+                </div>
+                <div>
+                    <p>16</p>
+                </div>
+                <div id="calendar_game" class="calendar_homegame">
+                    <p>17</p>
+                    <div class="calendar_detail">
+                        <img src="images/Calendar_GangWon.png" alt="" id="img">
+                        <p class="calendar_time">19:30</p>
+                    </div>
+                </div>
+                <div>
+                    <p>18</p>
+                </div>
+                <div>
+                    <p>19</p>
+                </div>
+                <div>
+                    <p>20</p>
+                </div>
+                <div id="calendar_game">
+                    <p>21</p>
+                    <div class="calendar_detail">
+                        <img src="images/Calendar_JeonBuk.png" alt="" id="img">
+                        <p class="calendar_time">19:00</p>
+                    </div>
+                </div>
+                <div>
+                    <p>22</p>
+                </div>
+                <div>
+                    <p>23</p>
+                </div>
+                <div>
+                    <p>24</p>
+                </div>
+                <div>
+                    <p>25</p>
+                </div>
+                <div>
+                    <p>26</p>
+                </div>
+                <div>
+                    <p>27</p>
+                </div>
+                <div>
+                    <p>28</p>
+                </div>
+                <div id="calendar_game" class="calendar_homegame">
+                    <p>29</p>
+                    <div class="calendar_detail">
+                        <img src="images/Calendar_pohang.png" alt="" id="img">
+                        <p class="calendar_time">19:00</p>
+                    </div>
+                </div>
+                <div>
+                    <p>30</p>
+                </div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+
+
+            <div class="calendar_ticket">
+                <button>
+                    <div class="calendar_icon">
+                        <i class="bi bi-ticket-detailed"></i>
+                        <p>예매하기</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer-include -->
+    <div id="footer"></div>
+</body>
+
+<script src="script/customsub.js"></script>
+<script>
+    /********** schedule **********/
+    const yearSelect = document.getElementById('calendar_yearSelect');
+    const monthSelect = document.getElementById('calendar_monthSelect');
+
+    function populateSelectors() {
+        const currentYear = new Date().getFullYear();
+        for (let y = currentYear - 5; y <= currentYear + 5; y++) {
+            const option = document.createElement('option');
+            option.value = y;
+            option.textContent = y;
+            yearSelect.appendChild(option);
+        }
+
+        for (let m = 1; m <= 12; m++) {
+            const option = document.createElement('option');
+            option.value = m;
+            option.textContent = m;
+            monthSelect.appendChild(option);
+        }
+
+        const today = new Date();
+        yearSelect.value = today.getFullYear();
+        monthSelect.value = today.getMonth() + 1;
+
+        updateCalendar();  // ✅ 초기 상태 표시 추가
+    }
+
+    function updateCalendar() {
+        const year = yearSelect.value;
+        const month = monthSelect.value;
+
+        // 모든 컨테이너 숨기기
+        document.querySelectorAll('.container').forEach(c => c.style.display = 'none');
+
+        // 해당 월에 맞는 컨테이너 표시
+        const targetId = month === '5' ? 'calendar_container05' :
+            month === '6' ? 'calendar_container06' :
+                '';
+
+        if (targetId) {
+            document.getElementById(targetId).style.display = 'grid';
+        }
+    }
+
+    function goToPreviousMonth() {
+        let year = parseInt(yearSelect.value);
+        let month = parseInt(monthSelect.value);
+
+        if (month === 1) {
+            month = 12;
+            year -= 1;
+        } else {
+            month -= 1;
+        }
+
+        yearSelect.value = year;
+        monthSelect.value = month;
+        updateCalendar();
+    }
+
+    function goToNextMonth() {
+        let year = parseInt(yearSelect.value);
+        let month = parseInt(monthSelect.value);
+
+        if (month === 12) {
+            month = 1;
+            year += 1;
+        } else {
+            month += 1;
+        }
+
+        yearSelect.value = year;
+        monthSelect.value = month;
+        updateCalendar();
+    }
+    // 초기 셀렉터 세팅 + 달력 표시
+    populateSelectors();
+</script>
+
+</html>
