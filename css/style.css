@@ -1544,7 +1544,8 @@ h2.main_visual_slide_title {
     margin-bottom: 1rem;
   }
 
-  .secondary_visual_item02 .secondary_visual_wrap_teams img {
+  .secondary_visual_item02 .secondary_visual_wrap_teams img, 
+  .secondary_visual_item02_second .secondary_visual_wrap_teams img {
     height: 50px;
   }
 
