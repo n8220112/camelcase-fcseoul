@@ -129,6 +129,18 @@ section.news_intro_wrapper {
   height: unset;
 }
 
+#tab1 .member_intro_item:nth-child(2),
+#tab2 .member_intro_item:nth-child(2) {
+  background-color: var(--redmain);
+  color: var(--white);
+  box-shadow: 3px 3px 10px var(--redmain);
+}
+
+#tab2 .member_intro_item:nth-child(2) .member_intro_item_num,
+#tab1 .member_intro_item:nth-child(2) .member_intro_item_num {
+  color: var(--white);
+}
+
 .members_header_inner_position {
   width: 1600px;
   display: flex;
