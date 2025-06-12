@@ -10,10 +10,16 @@
 
 ## 📷 관련 문서
 
-- **기획서**: [Figma Slides](https://www.figma.com/slides/mgo5Ms3fR81sEVMTgjBJJl/FC%EC%84%9C%EC%9A%B8-%EB%A6%AC%EB%89%B4%EC%96%BC--%EA%B8%B0%ED%9A%8D%EC%84%9C-?node-id=2243-606&t=nksUVRPgmEzucCAg-1)
+- **기획서**: [Figma Slides](https://www.figma.com/slides/mgo5Ms3fR81sEVMTgjBJJl/FC%EC%84%9C%EC%9A%B8-%EB%A6%AC%EB%89%B4%EC%96%BC--%EA%B8%B0%ED%9A%8D%EC%84%9C-?node-id=1-42&t=b6SrriTmVYGcRxzR-1)
 - **디자인 시안**: [Figma Design](https://www.figma.com/design/edeRTJ9wCZQQcriQp9ipWM/FC-SEOUL-%EB%A6%AC%EB%89%B4%EC%96%BC--%EC%8A%A4%ED%86%A0%EB%A6%AC%EB%B3%B4%EB%93%9C-?node-id=131-2755&t=IEFCSoxTUYbqMbbS-1)
 
 ---
+## 🖥 사용 기술 / 툴
+- HTML5
+- CSS3
+- JavaScript
+- VSCode
+- Figma
 
 ## 🧩 메인페이지(index.html) 기능 설명
 
@@ -84,11 +90,11 @@
 
 ## 🧑‍🤝‍🧑 팀원 역할 분담
 
-| 이름 | 역할 | 주요 작업 |
-|------|------|-----------|
+| 이름 | 주요 작업 | 연락처 |
+|------|-----------|-----------|
 | **이 봄** (팀장) | 헤더/푸터, 메인 비주얼 슬라이드, 선수 프로필 페이지, 구단 연혁 페이지 | bxrntxdxx@naver.com |
-| **장현민** | 메인 2, 4섹션, 경기 일정 페이지, 공지사항 페이지(목록) | 연락처 |
-| **김소희** | 메인 1, 3섹션, 선수 목록 페이지, 공지사항 페이지(갤러리) | 연락처 |
+| **김소희** | 메인 1, 3섹션, 선수 목록 페이지, 공지사항 페이지(갤러리) | thsu858585@naver.com |
+| **장현민** | 메인 2, 4섹션, 경기 일정 페이지, 공지사항 페이지(목록) | jhm4591@naver.com |
 
 ---
 
