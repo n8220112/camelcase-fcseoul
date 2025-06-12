@@ -14,7 +14,7 @@
 - **디자인 시안**: [Figma Design](https://www.figma.com/design/edeRTJ9wCZQQcriQp9ipWM/FC-SEOUL-%EB%A6%AC%EB%89%B4%EC%96%BC--%EC%8A%A4%ED%86%A0%EB%A6%AC%EB%B3%B4%EB%93%9C-?node-id=131-2755&t=IEFCSoxTUYbqMbbS-1)
 
 ---
-## 개발 설명
+## 🐪 개발 설명
 
 ### 🖥 사용 기술 / 툴
 - HTML5
@@ -23,9 +23,10 @@
 - VSCode
 - Figma
 
-### 개발 인원 및 기간
-3인, 4일
+### 👥 개발 인원 및 기간
+- 3인, 4일
 
+---
 ## 🧩 메인페이지(index.html) 기능 설명
 
 ### ✅ header / footer
