@@ -14,11 +14,11 @@
 - **디자인 시안**: [Figma Design](https://www.figma.com/design/edeRTJ9wCZQQcriQp9ipWM/FC-SEOUL-%EB%A6%AC%EB%89%B4%EC%96%BC--%EC%8A%A4%ED%86%A0%EB%A6%AC%EB%B3%B4%EB%93%9C-?node-id=131-2755&t=IEFCSoxTUYbqMbbS-1)
 
 ---
-## 🐪 개발 설명
+## 🐫 팀 정보
 
-### 👥 팀 구성 인원 및 제작 기간
+### 👥 구성 인원 및 제작 기간
 - 3인
-- 2025.05.12~2025.06.12
+- 5일 *(2025.05.~2025.06.)*
 
 ### 🖥 사용 기술 / 툴
 - HTML5
